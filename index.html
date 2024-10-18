@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holerite</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Holerite</title>
 </head>
+
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Holerite</h1>
-        
+
         <form id="holeriteForm" class="row g-3">
             <h3>Dados da Empresa</h3>
             <div class="col-md-6">
@@ -88,6 +90,16 @@
                 <label for="valeTransporte" class="form-label">Vale-Transporte (%)</label>
                 <input type="number" class="form-control" id="valeTransporte" required>
             </div>
+            <div class="col-md-4">
+                <label for="descontoINSS" class="form-label">Desconto de INSS (%)</label>
+                <select class="form-select" id="descontoINSS" required>
+                    <option value="">Escolher...</option>
+                    <option value="7.5">Até R$ 1.412,00 (7,5%)</option>
+                    <option value="9">De R$ 1.412,01 até R$ 2.666,68 (9%)</option>
+                    <option value="12">De R$ 2.666,69 até R$ 4.000,03 (12%)</option>
+                    <option value="14">De R$ 4.000,04 até R$ 7.786,02 (14%)</option>
+                </select>
+            </div>
 
             <h3>Descontos Não Obrigatórios</h3>
             <div class="col-md-4">
@@ -108,13 +120,18 @@
             </div>
 
             <div class="col-12">
-                <button type="button" class="btn btn-primary" onclick="calcularHolerite()">Calcular Salário Líquido</button>
+                <button type="button" class="btn btn-primary" onclick="calcularHolerite()">Calcular</button>
             </div>
         </form>
-
         <div id="resultado" class="mt-4"></div>
+        <div id="imprimirHolerite" class="mt-4" style="display:none;">
+            <h3>Informações do Holerite</h3>
+            <pre id="holeriteInfo"></pre>
+            <button class="btn btn-success" onclick="imprimirHolerite()">Imprimir</button>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="app.js"></script>
 </body>
+
 </html>
